@@ -7,7 +7,7 @@ LilyWhiteBot
 
 目前可行的备选方案为 [OICQ](https://github.com/takayama-lily/oicq) 或 [Mirai](https://github.com/mamoe/mirai)/[CQHTTP Mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai)。
 
-目前由於 OICQ 原庫停止維護，本庫轉用 [Icalingua++ 維護的版本](https://github.com/Icalingua-plus-plus/oicq-icalingua-plus-plus).
+目前由於 OICQ 原庫停止維護，本庫轉用 [Icalingua++ 維護的版本](https://github.com/Icalingua-plus-plus/oicq-icalingua-plus-plus)。
 
 如果安卓qq協議無法登陸，可以嘗試先使用`安卓修复8.8.88`，成功登陸後再轉用8.9.33版本協議。
 

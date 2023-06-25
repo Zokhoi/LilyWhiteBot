@@ -17,7 +17,7 @@
         "ishisashiencoding": "^0.4.0",
         "js-yaml": "^3.14.1",
         "lru-cache": "^5.1.1",
-        "oicq-icalingua-plus-plus": "^1.23.47",
+        "oicq-icalingua-plus-plus": "^1.23.51",
         "request": "~2.88.2",
         "sharp": "^0.25.4",
         "string-format": "^2.0.0",

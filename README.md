@@ -9,7 +9,7 @@ LilyWhiteBot
 
 目前由於 OICQ 原庫停止維護，本庫轉用 [Icalingua++ 維護的版本](https://github.com/Icalingua-plus-plus/oicq-icalingua-plus-plus)。
 
-目前舊qq協議已極不穩定，建議轉用官方客戶端加hook如[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)+[LLOneBot](https://github.com/LLOneBot/LLOneBot)。
+目前舊qq協議已極不穩定，建議轉用官方客戶端加 hook 如 [LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)+[LLOneBot](https://github.com/LLOneBot/LLOneBot)。
 
 ## 功能
 * QQ（实验性）、Telegram、IRC、Discord 等多组聊天群之间互联。

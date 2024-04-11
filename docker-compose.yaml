@@ -8,7 +8,7 @@ services:
     container_name: lilywhitebot
     restart: unless-stopped
     ports:
-      - "3000:3000" # HTTP 上報端口
+      - "3000:3000" # HTTP 監聽 / OneBot HTTP 上報端口
     environment:
       - TZ=Asia/Shanghai
     volumes:

@@ -53,7 +53,7 @@ cp badwords.example.yml badwords.yml
 2. 如需转发图片，建议使用图床（`transport.options.servemedia.type`不设置为`self`），因容器取文件比较麻烦。
 
 ### docker-compose.yaml
-在bot目录创建docker-compose.yaml文件，可参照以下配置文件进行设置：
+在bot目录更改docker-compose.yaml文件，可参照以下配置文件进行设置：
 
 ```yaml
 version: '3'
@@ -66,7 +66,7 @@ services:
     container_name: lilywhitebot
     restart: unless-stopped
     ports:
-      - "3000:3000" # HTTP 上報端口
+      - "3000:3000" # HTTP 監聽 / OneBot HTTP 上報端口
     environment:
       - TZ=Asia/Shanghai
     volumes:
@@ -97,7 +97,7 @@ services:
     container_name: lilywhitebot
     restart: always
     ports:
-      - "3000:3000" # HTTP 上報端口
+      - "3000:3000" # HTTP 監聽 / OneBot HTTP 上報端口
     environment:
       - TZ=Asia/Shanghai
     volumes:

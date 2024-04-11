@@ -25,7 +25,7 @@ module.exports = (pluginManager, options) => {
           if (['Telegram', 'IRC', 'Discord'].includes(context._from_client)) {
               let handler = pluginManager.handlers.get(context._from_client);
               let qqHandler = pluginManager.handlers.get('QQ');
-              qqHandler._client.getForwardMsg(context.param.split(' ')[0]).then(res=>{
+              qqHandler.getForwardMsg(context.param.split(' ')[0]).then(res=>{
                 let target = context._from_client == 'IRC' ? context.from : context.to;
                 if (res.status=='ok') {
                   // console.log(res.data)
@@ -43,6 +43,8 @@ module.exports = (pluginManager, options) => {
                     
                     if (message.extra.multimsg) {
                       meta.text+=`\n[私聊机器人使用 ${command} ${message.extra.multimsg[0]} 以${message.extra.multimsg[1]}]`;
+                    } else if (message.extra.forward) {
+                      meta.text+=`\n[私聊机器人使用 ${command} ${message.extra.forward[0]} 以查看转发消息]`;
                     }
                     
                     let output = format('[{nick}] {text}', meta);

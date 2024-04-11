@@ -15,7 +15,7 @@ const { loadConfig, checkDeprecatedConfig } = require('./lib/util.js');
 const allHandlers = new Map([
     ['IRC', 'IRCMessageHandler'],
     ['Telegram', 'TelegramMessageHandler'],
-    ['QQ', 'QQSocketApiMessageHandler'],
+    ['QQ', 'QQOnebot11MessageHandler'],
     ['Discord', 'DiscordMessageHandler']
 ]);
 

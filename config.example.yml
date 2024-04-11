@@ -56,8 +56,8 @@ Telegram:
 
 # QQ 注意事项：
 # 可使用外置客戶端如[Mirai](https://github.com/mamoe/mirai)與[OneBot Mirai](https://github.com/yyuueexxiinngg/onebot-kotlin)配合使用；
+# 或使用官方Electron客戶端加hook如[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)與[LLOneBot](https://github.com/LLOneBot/LLOneBot)配合使用；
 # 或使用內置倚賴[OICQ](https://github.com/takayama-lily/oicq)。
-# 推薦使用 OICQ。
 QQ:
   disabled: true                            # 如果需要 QQ 机器人，请设置为 false
   bot:
@@ -80,13 +80,13 @@ QQ:
     autoServer: true                        # 自动选择最优服务器，关闭后会一直使用`msfwifi.3g.qq.com`进行连接
     signApiAddr: "http://127.0.0.1:8086/sign"  # 簽名算法服務api地址
 
-    # 以下参数用于与 Mirai 及 OneBot Mirai 插件连接，需要和其设置一致
+    # 以下参数用于与 OneBot 连接，需要和其设置一致
     # 酷Q 及 CoolQ HTTP API 插件已停运
     # 如果使用 OICQ，请删除或注释以下参数
     apiRoot: "http://127.0.0.1:5700/"
     accessToken: "123"
     secret: "abc"
-    listen:                                 # 用于接收消息，需要同步修改 OneBot Mirai 插件中 post_url 参数
+    listen:                                 # 用于接收消息，需要同步修改 OneBot HTTP 上報參數配置
       host: "127.0.0.1"                     # 使用Docker时请设置成0.0.0.0
       port: 11234
 

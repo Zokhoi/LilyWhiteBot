@@ -5,11 +5,11 @@ LilyWhiteBot
 ## 关于QQ的重要说明
 2020年7月22日，晨风机器人作者被警方喝茶，随后酷Q作者迫于压力跑路。
 
-目前可行的备选方案为 [OICQ](https://github.com/takayama-lily/oicq) 或 [Mirai](https://github.com/mamoe/mirai)/[CQHTTP Mirai](https://github.com/yyuueexxiinngg/cqhttp-mirai)。
+目前可行的备选方案为 [OICQ](https://github.com/takayama-lily/oicq) 或 [Mirai](https://github.com/mamoe/mirai)+[OneBot Mirai](https://github.com/yyuueexxiinngg/onebot-kotlin)。
 
 目前由於 OICQ 原庫停止維護，本庫轉用 [Icalingua++ 維護的版本](https://github.com/Icalingua-plus-plus/oicq-icalingua-plus-plus)。
 
-如果安卓qq協議無法登陸，可以嘗試先使用`安卓修复8.8.88`，成功登陸後再轉用8.9.33版本協議。
+目前舊qq協議已極不穩定，建議轉用官方客戶端加hook如[LiteLoaderQQNT](https://github.com/LiteLoaderQQNT/LiteLoaderQQNT)+[LLOneBot](https://github.com/LLOneBot/LLOneBot)。
 
 ## 功能
 * QQ（实验性）、Telegram、IRC、Discord 等多组聊天群之间互联。

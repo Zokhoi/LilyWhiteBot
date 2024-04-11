@@ -4,7 +4,8 @@
 ## 关于QQ的重要说明
 
 2020年7月22日，晨风机器人作者被警方喝茶，随后酷Q作者迫于压力跑路。<s>本程序QQ部分依赖酷Q运行，因此也不再支持QQ传话，直到有其他解决方案为止。</s><br />
-本倉庫已移除酷Q ，改為使用 [OICQ](https://github.com/takayama-lily/oicq)，因此 Docker 可完全使用命令行配置本倉庫。
+本倉庫已移除酷Q ，改為對接 [OneBot](https://11.onebot.dev) 
+或使用 [OICQ](https://github.com/takayama-lily/oicq) ，因此 Docker 可完全使用命令行配置本倉庫。
 
 下面是一个基于 Docker Compose 的示例配置方法：
 
@@ -48,23 +49,29 @@ cp badwords.example.yml badwords.yml
 
 根据示例配置文件中的注释修改配置文件。其中，config.yml的 QQ 部分有几处需要留意的地方：
 
-1. `QQ.bot.passwordMd5` 需填寫機器人帳號密碼進行MD5加密後的結果。建議使用本地加密器以避免密碼流出。
+1. 若使用 OICQ, `QQ.bot.passwordMd5` 需填寫機器人帳號密碼進行MD5加密後的結果。建議使用本地加密器以避免密碼流出。
 2. 如需转发图片，建议使用图床（`transport.options.servemedia.type`不设置为`self`），因容器取文件比较麻烦。
 
 ### docker-compose.yaml
 在bot目录创建docker-compose.yaml文件，可参照以下配置文件进行设置：
 
 ```yaml
-version: "3"
+version: '3'
 
 services:
   lilywhitebot:
-    image: node:12
-    restart: always
-    working_dir: /home/node/app
+    build:
+      dockerfile: ./Dockerfile
+    tty: true
+    container_name: lilywhitebot
+    restart: unless-stopped
+    ports:
+      - "3000:3000" # HTTP 上報端口
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
-      - ./LilyWhiteBot:/home/node/app
-    command: "npm run install-start"
+      - ./config.yml:/home/node/lwb/config.yml:ro
+      - ./badwords.yml:/home/node/lwb/badwords.yml:ro
 ```
 
 ## 5. 启动
@@ -84,14 +91,20 @@ version: "3"
 
 services:
   lilywhitebot:
-    image: node:12
+    build:
+      dockerfile: ./Dockerfile
+    tty: true
+    container_name: lilywhitebot
     restart: always
-    working_dir: /home/node/app
+    ports:
+      - "3000:3000" # HTTP 上報端口
+    environment:
+      - TZ=Asia/Shanghai
     volumes:
-      - ./LilyWhiteBot:/home/node/app
+      - ./config.yml:/home/node/lwb/config.yml:ro
+      - ./badwords.yml:/home/node/lwb/badwords.yml:ro
       # 在此处增加临时文件存放目录
       - ./cache:/home/ndoe/cache
-    command: "npm run install-start"
 
   nginx:
     # ...

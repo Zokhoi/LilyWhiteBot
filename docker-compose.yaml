@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  lilywhitebot:
+    build:
+      dockerfile: ./Dockerfile
+    tty: true
+    container_name: lilywhitebot
+    restart: unless-stopped
+    ports:
+      - "3000:3000" # HTTP 上報端口
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./config.yml:/home/node/lwb/config.yml:ro
+      - ./badwords.yml:/home/node/lwb/badwords.yml:ro

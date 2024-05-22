@@ -28,11 +28,22 @@ module.exports = (pluginManager, options) => {
               qqHandler.getForwardMsg(context.param.split(' ')[0]).then(res=>{
                 let target = context._from_client == 'IRC' ? context.from : context.to;
                 if (res.status=='ok') {
-                  // console.log(res.data)
-                  res.data.forEach(msg=>{
-                    let message = qqHandler.parseMessage(msg.message);
+                  let msgArray = [];
+                  if (Array.isArray(res.data)) {
+                    // OICQ 格式
+                    msgArray = res.data;
+                  } else if (Array.isArray(res.data.message)) {
+                    // Onebot v11 格式
+                    msgArray = res.data.message;
+                  } else if (Array.isArray(res.data.messages)) {
+                    // NapCat 格式
+                    msgArray = res.data.messages;
+                  }
+                  msgArray.forEach(msg=>{
+                    let message = qqHandler.parseMessage(msg.message||msg.content);
                     let meta = {
-                        nick: msg.nickname||msg.user_id,
+                        nick: msg.sender?.nickname || msg.sender?.user_id
+                          || msg.nickname || msg.user_id,
                         from: msg.user_id,
                         to: msg.group_id,
                         text: message.text,

@@ -13,7 +13,7 @@
 参见[README.md](https://github.com/Zokhoi/LilyWhiteBot/blob/master/README.md)。
 
 ## 2. 安装必要的软件
-需要在服务器上安装Docker、Docker Compose、git，具体操作步骤略。
+需要在服务器上安装Docker、git，具体操作步骤略。
 
 <!-- 如使用中国国内服务器：
 1. 需配置好Docker镜像源，否则拉镜像时网络会非常卡。
@@ -77,12 +77,12 @@ services:
 ## 5. 启动
 执行
 ```
-docker-compose up -d
+docker compose -f ./docker-compose.yaml up -d
 ```
 
 第一次启动时，需解除QQ設備鎖。解鎖成功后，在命令行中重启主程式。
 
-配置完成后，检查机器人是否正常运行。互联机器人日志可通过`docker logs bot_lilywhitebot_1`命令查看。
+配置完成后，检查机器人是否正常运行。互联机器人日志可通过`docker logs lilywhitebot`命令查看。
 
 ## 其他说明
 ### 文件服务器

@@ -104,7 +104,7 @@ services:
       - ./config.yml:/home/node/lwb/config.yml:ro
       - ./badwords.yml:/home/node/lwb/badwords.yml:ro
       # 在此处增加临时文件存放目录
-      - ./cache:/home/ndoe/cache
+      - ./cache:/home/node/cache
 
   nginx:
     # ...
